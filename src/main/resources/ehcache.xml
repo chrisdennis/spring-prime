@@ -11,6 +11,14 @@
   </service>
 
   <cache-template name="heap-cache">
+    <listeners>
+      <listener>
+        <class>org.terracotta.ehcache.EvictionLogger</class>
+        <event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+        <event-ordering-mode>UNORDERED</event-ordering-mode>
+        <events-to-fire-on>EVICTED</events-to-fire-on>
+      </listener>
+    </listeners>
     <heap unit="entries">2000</heap>
   </cache-template>
 </config>
