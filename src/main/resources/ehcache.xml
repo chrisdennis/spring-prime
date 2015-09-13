@@ -1,0 +1,16 @@
+<config
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xmlns='http://www.ehcache.org/v3'
+    xmlns:jsr107='http://www.ehcache.org/v3/jsr107'>
+
+  <service>
+    <jsr107:defaults>
+      <jsr107:cache name="is-prime" template="heap-cache"/>
+      <jsr107:cache name="nth-prime" template="heap-cache"/>
+    </jsr107:defaults>
+  </service>
+
+  <cache-template name="heap-cache">
+    <heap unit="entries">2000</heap>
+  </cache-template>
+</config>
