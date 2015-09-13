@@ -1,9 +1,12 @@
 package org.terracotta;
 
+import javax.cache.CacheManager;
 import javax.cache.annotation.CacheDefaults;
 import javax.cache.annotation.CacheResult;
+import javax.cache.configuration.MutableConfiguration;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.cache.JCacheManagerCustomizer;
 import org.springframework.stereotype.Component;
 
 import static java.util.stream.LongStream.range;
@@ -12,6 +15,17 @@ import static java.util.stream.LongStream.range;
 @CacheDefaults(cacheName = "nth-prime")
 public class NthPrimeService {
 
+  @Component
+  public static class CachingSetup implements JCacheManagerCustomizer {
+
+    @Override
+    public void customize(CacheManager cacheManager) {
+      cacheManager.createCache("nth-prime", new MutableConfiguration<>()
+              .setStoreByValue(false)
+              .setStatisticsEnabled(true));
+    }
+  }
+  
   @Autowired IsPrimeService isPrimeService;
   
   @CacheResult
