@@ -19,6 +19,9 @@
         <events-to-fire-on>EVICTED</events-to-fire-on>
       </listener>
     </listeners>
-    <heap unit="entries">2000</heap>
+    <resources>
+      <heap unit="entries">2000</heap>
+      <offheap unit="mb">100</offheap>
+    </resources>
   </cache-template>
 </config>
