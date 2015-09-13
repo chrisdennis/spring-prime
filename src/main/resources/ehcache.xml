@@ -20,6 +20,9 @@
         <eventsToFireOn>EVICTED</eventsToFireOn>
       </listener>
     </integration>
-    <heap size="2000" unit="entries"/>
+    <resources>
+      <heap size="2000" unit="entries"/>
+      <offheap size="100" unit="mb"/>
+    </resources>
   </cache-template>
 </config>

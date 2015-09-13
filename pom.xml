@@ -56,7 +56,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
-          <jvmArguments>-Xmx64m</jvmArguments>
+          <jvmArguments>-Xmx64m -XX:MaxDirectMemorySize=512m</jvmArguments>
         </configuration>
       </plugin>
     </plugins>
