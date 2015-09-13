@@ -12,6 +12,14 @@
 
   <cache-template name="heap-cache">
     <eviction-prioritizer>org.terracotta.ehcache.LowLongKeysFirst</eviction-prioritizer>
+    <integration>
+      <listener>
+        <class>org.terracotta.ehcache.EvictionLogger</class>
+        <eventFiringMode>ASYNCHRONOUS</eventFiringMode>
+        <eventOrderingMode>UNORDERED</eventOrderingMode>
+        <eventsToFireOn>EVICTED</eventsToFireOn>
+      </listener>
+    </integration>
     <heap size="2000" unit="entries"/>
   </cache-template>
 </config>
