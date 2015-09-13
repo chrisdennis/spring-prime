@@ -11,6 +11,7 @@
   </service>
 
   <cache-template name="heap-cache">
+    <eviction-prioritizer>org.terracotta.ehcache.LowLongKeysFirst</eviction-prioritizer>
     <heap size="2000" unit="entries"/>
   </cache-template>
 </config>
